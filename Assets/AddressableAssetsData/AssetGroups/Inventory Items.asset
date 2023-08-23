@@ -16,25 +16,7 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: dd25db6221211a24d979b31d50184201
-  m_SerializeEntries:
-  - m_GUID: f3d193f927f5b554aa865c1e645f7457
-    m_Address: Assets/Weapons/Prefabs/BossSword.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
-  - m_GUID: 24a423ef19c294449b84f4728c309501
-    m_Address: Assets/Weapons/Prefabs/Shield.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
-  - m_GUID: 8d937e227d331c74d9136971897d6aeb
-    m_Address: Assets/Weapons/Prefabs/Sword.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
+  m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 99c87e75b523bd14e9f70b3966d71316, type: 2}
   m_SchemaSet:
