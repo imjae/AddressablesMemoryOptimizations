@@ -60,6 +60,20 @@ MonoBehaviour:
         m_Value: ServerData/[BuildTarget]
       - m_Id: 4388e163ab6da5b41a1eca55a62ef267
         m_Value: https://storagejk1.blob.core.windows.net/assetbundle
+    - m_InheritedParent: 
+      m_Id: 1bd252afdd41cab4da3d46d65d7826ce
+      m_ProfileName: RemoteProfile
+      m_Values:
+      - m_Id: edec2c29d1b8e204b894d9f912297a02
+        m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
+      - m_Id: da4da2b7edb627346975640e562ba2e6
+        m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]'
+      - m_Id: e0f962fae37b7a04fab7082e8eecb630
+        m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
+      - m_Id: b51ca85c0d34ddd419cf07e5dce0ca0b
+        m_Value: ServerData/[BuildTarget]
+      - m_Id: 4388e163ab6da5b41a1eca55a62ef267
+        m_Value: https://jkassetsstorage.blob.core.windows.net/assets
     m_ProfileEntryNames:
     - m_Id: edec2c29d1b8e204b894d9f912297a02
       m_Name: BuildTarget
@@ -102,7 +116,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c38659bb239935b4cac66bb42ae334b7, type: 2}
   - {fileID: 11400000, guid: 96097f028bad387429de04c23f777f0e, type: 2}
   - {fileID: 11400000, guid: 0a4b1b88aff429e40bf9a7e75cdd8d00, type: 2}
-  m_ActiveProfileId: 9ce4c4b3bc9717a458c51d822dcc5d26
+  m_ActiveProfileId: 1bd252afdd41cab4da3d46d65d7826ce
   m_HostingServicesManager:
     m_HostingServiceInfos: []
     m_Settings: {fileID: 11400000}

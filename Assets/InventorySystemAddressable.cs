@@ -7,16 +7,17 @@ public class InventorySystemAddressable : MonoBehaviour
 {
     public AssetReferenceGameObject[] inventoryItems;
     public Transform[] spawnPositions;
-    Dictionary<int, List<GameObject>> spawnedObjects = new Dictionary<int, List<GameObject>>();
+    Dictionary<int, List<GameObject>> spawnedInstantiateObjects = new Dictionary<int, List<GameObject>>();
+    Dictionary<int, List<GameObject>> spawnedAssetObject = new Dictionary<int, List<GameObject>>();
     public void SpawnItem(int itemNumber)
     {
         Debug.Log("Spawning item " + itemNumber);
-        if (!spawnedObjects.ContainsKey(itemNumber))
+        if (!spawnedInstantiateObjects.ContainsKey(itemNumber))
         {
-            spawnedObjects.Add(itemNumber, new List<GameObject>());
+            spawnedInstantiateObjects.Add(itemNumber, new List<GameObject>());
         }
 
-        if (spawnedObjects[itemNumber].Count > 0)
+        if (spawnedInstantiateObjects[itemNumber].Count > 0)
         {
             Vector3 randomPos = new Vector3(Random.Range(-0.4f, 0.4f), Random.Range(-1.5f, 1.5f), 0);
             Vector3 targetPos = spawnPositions[itemNumber].position + randomPos;
@@ -37,19 +38,32 @@ public class InventorySystemAddressable : MonoBehaviour
             yield return op;
         }
 
-        GameObject.Instantiate(op.Result, position, rotation);
-
-        OnSpawnComplete(op, itemNumber);
+        OnSpawnComplete(op, itemNumber, position, rotation);
     }
 
     public void DespawnItem(int itemNumber)
     {
-        if (spawnedObjects.TryGetValue(itemNumber, out var value))
+        if (spawnedInstantiateObjects.TryGetValue(itemNumber, out var value))
         {
             foreach (var entry in value)
             {
+                Destroy(entry);
+            }
+
+            value.Clear();
+        }
+        else
+        {
+            return;
+        }
+
+        if (spawnedAssetObject.TryGetValue(itemNumber, out var value2))
+        {
+            foreach (var entry in value2)
+            {
                 Addressables.ReleaseInstance(entry);
             }
+
             value.Clear();
         }
         else
@@ -58,15 +72,25 @@ public class InventorySystemAddressable : MonoBehaviour
         }
     }
 
-    void OnSpawnComplete(UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle<GameObject> handle, int itemNumber)
+    void OnSpawnComplete(UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle<GameObject> handle, int itemNumber, Vector3 position, Quaternion rotation)
     {
-        if (spawnedObjects.TryGetValue(itemNumber, out var value))
+        var ob = GameObject.Instantiate(handle.Result, position, rotation);
+        if (spawnedInstantiateObjects.TryGetValue(itemNumber, out var value))
         {
-            value.Add(handle.Result);
+            value.Add(ob);
         }
         else
         {
-            spawnedObjects.Add(itemNumber, new List<GameObject>() { handle.Result });
+            spawnedInstantiateObjects.Add(itemNumber, new List<GameObject>() { ob });
+        }
+
+        if (spawnedAssetObject.TryGetValue(itemNumber, out var value2))
+        {
+            value2.Add(handle.Result);
+        }
+        else
+        {
+            spawnedAssetObject.Add(itemNumber, new List<GameObject>() { handle.Result });
         }
     }
 
