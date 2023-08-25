@@ -19,20 +19,25 @@ public class InventorySystemAddressable : MonoBehaviour
         if (spawnedObjects[itemNumber].Count > 0)
         {
             Vector3 randomPos = new Vector3(Random.Range(-0.4f, 0.4f), Random.Range(-1.5f, 1.5f), 0);
-            StartCoroutine(WaitForSpawnComplete(Addressables.InstantiateAsync(inventoryItems[itemNumber], spawnPositions[itemNumber].position + randomPos, spawnPositions[itemNumber].rotation), itemNumber));
+            Vector3 targetPos = spawnPositions[itemNumber].position + randomPos;
+            StartCoroutine(WaitForSpawnComplete(Addressables.LoadAssetAsync<GameObject>(inventoryItems[itemNumber]), targetPos, spawnPositions[itemNumber].rotation, itemNumber));
         }
         else
         {
-            StartCoroutine(WaitForSpawnComplete(Addressables.InstantiateAsync(inventoryItems[itemNumber], spawnPositions[itemNumber].position, spawnPositions[itemNumber].rotation), itemNumber));
+            StartCoroutine(WaitForSpawnComplete(Addressables.LoadAssetAsync<GameObject>(inventoryItems[itemNumber]), spawnPositions[itemNumber].position, spawnPositions[itemNumber].rotation, itemNumber));
         }
     }
 
-    IEnumerator WaitForSpawnComplete(UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle<GameObject> op, int itemNumber)
+
+
+    IEnumerator WaitForSpawnComplete(UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle<GameObject> op, Vector3 position, Quaternion rotation, int itemNumber)
     {
-        while(op.IsDone == false)
+        while (op.IsDone == false)
         {
             yield return op;
         }
+
+        GameObject.Instantiate(op.Result, position, rotation);
 
         OnSpawnComplete(op, itemNumber);
     }
@@ -41,7 +46,7 @@ public class InventorySystemAddressable : MonoBehaviour
     {
         if (spawnedObjects.TryGetValue(itemNumber, out var value))
         {
-            foreach(var entry in value)
+            foreach (var entry in value)
             {
                 Addressables.ReleaseInstance(entry);
             }

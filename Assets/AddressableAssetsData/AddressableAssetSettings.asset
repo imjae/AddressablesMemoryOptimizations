@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DefaultGroup: dd25db6221211a24d979b31d50184201
   m_OptimizeCatalogSize: 0
-  m_BuildRemoteCatalog: 0
+  m_BuildRemoteCatalog: 1
   m_BundleLocalCatalog: 0
   m_CatalogRequestsTimeout: 0
   m_DisableCatalogUpdateOnStart: 0
@@ -30,9 +30,9 @@ MonoBehaviour:
   m_MonoScriptBundleNaming: 0
   m_MonoScriptBundleCustomNaming: 
   m_RemoteCatalogBuildPath:
-    m_Id: 
+    m_Id: b51ca85c0d34ddd419cf07e5dce0ca0b
   m_RemoteCatalogLoadPath:
-    m_Id: 
+    m_Id: 4388e163ab6da5b41a1eca55a62ef267
   m_ContentStateBuildPath: 
   m_overridePlayerVersion: 
   m_GroupAssets:
@@ -59,7 +59,7 @@ MonoBehaviour:
       - m_Id: b51ca85c0d34ddd419cf07e5dce0ca0b
         m_Value: ServerData/[BuildTarget]
       - m_Id: 4388e163ab6da5b41a1eca55a62ef267
-        m_Value: http://localhost/[BuildTarget]
+        m_Value: https://storagejk1.blob.core.windows.net/assetbundle
     m_ProfileEntryNames:
     - m_Id: edec2c29d1b8e204b894d9f912297a02
       m_Name: BuildTarget
