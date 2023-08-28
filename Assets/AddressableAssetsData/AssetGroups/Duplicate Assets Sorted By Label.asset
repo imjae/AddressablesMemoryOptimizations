@@ -47,6 +47,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Bundle1
+  - m_GUID: 4d442b0e6e77f9942a58057f010415a0
+    m_Address: Assets/Weapons/SmallShield/Materials/SmallShield_MAT.mat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Bundle1
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 99c87e75b523bd14e9f70b3966d71316, type: 2}
   m_SchemaSet:
