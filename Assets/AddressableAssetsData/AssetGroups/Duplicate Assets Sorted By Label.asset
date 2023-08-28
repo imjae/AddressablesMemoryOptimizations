@@ -37,6 +37,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Bundle2
+  - m_GUID: 18a9a759a07b90f4587718765014632b
+    m_Address: Assets/Weapons/Sword/Model/BossSword_MAT.mat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Bundle1
+  - m_GUID: fe092cd63d100a34ba7ed43cf2277f84
+    m_Address: Assets/Weapons/Sword/Model/Sword_MAT.mat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Bundle1
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 99c87e75b523bd14e9f70b3966d71316, type: 2}
   m_SchemaSet:

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
@@ -28,8 +29,6 @@ public class InventorySystemAddressable : MonoBehaviour
             StartCoroutine(WaitForSpawnComplete(Addressables.LoadAssetAsync<GameObject>(inventoryItems[itemNumber]), spawnPositions[itemNumber].position, spawnPositions[itemNumber].rotation, itemNumber));
         }
     }
-
-
 
     IEnumerator WaitForSpawnComplete(UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle<GameObject> op, Vector3 position, Quaternion rotation, int itemNumber)
     {
