@@ -7,6 +7,7 @@ using UnityEngine.AddressableAssets;
 public class InventorySystemAddressable : MonoBehaviour
 {
     public AssetReferenceGameObject[] inventoryItems;
+    public AssetReference ar;
     public Transform[] spawnPositions;
     Dictionary<int, List<GameObject>> spawnedInstantiateObjects = new Dictionary<int, List<GameObject>>();
     Dictionary<int, List<GameObject>> spawnedAssetObject = new Dictionary<int, List<GameObject>>();
